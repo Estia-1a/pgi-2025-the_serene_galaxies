@@ -12,5 +12,23 @@
  */
 
 void helloWorld() {
-    printf("Hello World !");
+    printf("Hello World!! !");
+}
+
+void dimension (char *source_path) {
+    
+    unsigned char *data = NULL;  // pointeur vers les données d’image
+    int width;                   // largeur de l’image
+    int height;                  // hauteur de l’image
+    int channels;                // nombre de canaux (ex: RGB = 3)
+
+
+
+    
+    if (read_image_data(source_path, &data, &width, &height, &channels)) {
+        printf("dimension: %d, %d\n", width, height);
+        } else {
+        fprintf(stderr, "Erreur : Impossible de lire l'image %s\n", source_path);
+    }
+    
 }
