@@ -1,0 +1,21 @@
+/home/runner/work/pgi-2025-the_serene_galaxies/pgi-2025-the_serene_galaxies/src/features.c:17:6: error: redefinition of ‘helloWorld’
+   17 | void helloWorld() {
+      |      ^~~~~~~~~~
+/home/runner/work/pgi-2025-the_serene_galaxies/pgi-2025-the_serene_galaxies/src/features.c:14:6: note: previous definition of ‘helloWorld’ with type ‘void()’
+   14 | void helloWorld() {
+      |      ^~~~~~~~~~
+gmake[2]: *** [CMakeFiles/freud.dir/build.make:93: CMakeFiles/freud.dir/src/features.c.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+/home/runner/work/pgi-2025-the_serene_galaxies/pgi-2025-the_serene_galaxies/src/main.c: In function ‘main’:
+/home/runner/work/pgi-2025-the_serene_galaxies/pgi-2025-the_serene_galaxies/src/main.c:36:5: error: too few arguments to function ‘first_pixel’
+   36 |     first_pixel();
+      |     ^~~~~~~~~~~
+In file included from /home/runner/work/pgi-2025-the_serene_galaxies/pgi-2025-the_serene_galaxies/src/main.c:8:
+/home/runner/work/pgi-2025-the_serene_galaxies/pgi-2025-the_serene_galaxies/src/features.h:7:6: note: declared here
+    7 | void first_pixel (char *source_path);
+      |      ^~~~~~~~~~~
+gmake[2]: *** [CMakeFiles/freud.dir/build.make:107: CMakeFiles/freud.dir/src/main.c.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:87: CMakeFiles/freud.dir/all] Error 2
+gmake: *** [Makefile:136: all] Error 2
+
+The process '/usr/local/bin/cmake' failed with exit code 2
