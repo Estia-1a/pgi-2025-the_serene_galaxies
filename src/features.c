@@ -12,45 +12,45 @@
  */
 
 void helloWorld() {
-    printf("Hello World !");
+    printf("Hello World!! !");
 }
+
 void dimension (char *source_path){
     unsigned char *data = NULL;
-    int width;
-    int height;
-    int channels;
-    
+    int width;                   // largeur de l’image
+    int height;                  // hauteur de l’image
+    int channels;                // nombre de canaux (ex: RGB = 3)
+
     if (read_image_data(source_path, &data, &width, &height, &channels)) {
         printf("dimension: %d, %d\n", width, height);
     } 
-        
     else {
         fprintf(stderr, "Erreur : Impossible de lire l'image %s\n", source_path);
     }
 }
-
-
 void first_pixel(char *source_path) {
     unsigned char *data = NULL;
     int width, height, channel_count;
 
-    if (read_image_data(source_path, &data, &width, &height, &channel_count) != 0) {
+    // Lire l'image
+    if (read_image_data(source_path, &data, &width, &height, &channel_count) == 0) {
         printf("Erreur lors de la lecture de l'image.\n");
         return;
     }
 
-    // Vérifie qu'on a bien au moins 3 canaux (R, G, B)
-    if (channel_count < 3) {
-        printf("Image avec moins de 3 canaux, impossible de lire RGB.\n");
+    // Vérifier que les données sont valides
+    if (data == NULL) {
+        printf("Aucune donnée image trouvée.\n");
         return;
     }
 
-    int r = data[0];
-    int g = data[1];
-    int b = data[2];
+    // Extraire les 3 premiers octets (R, G, B)
+    unsigned char R = data[0];
+    unsigned char G = data[1];
+    unsigned char B = data[2];
 
-    printf("first_pixel: %d, %d, %d\n", r, g, b);
+    // Afficher la couleur du premier pixel
+    printf("first_pixel: %d, %d, %d\n", R, G, B);
 
-    // Libérer la mémoire si nécessaire (selon read_image_data)
-    free(data);
+    return 0;
 }
